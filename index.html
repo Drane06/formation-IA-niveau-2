@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Formation Numérique - Focus IA Avancée</title>
+    
+    <!-- Ajout des polices Google Fonts (Poppins et Lato) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ajout de Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Définitions de couleurs pour la cohérence */
+        :root {
+            /* Couleurs de fond principales */
+            --color-bg-light: #f5f7fa; 
+            --color-bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+            /* Couleurs de texte */
+            --color-text-dark: #2c3e50;
+            --color-text-medium: #555;
+
+            /* THÈME PRINCIPAL (Header) */
+            --theme-header-gradient: linear-gradient(135deg, #4c66cc 0%, #3e51a8 100%);
+            --theme-header-color: #4c66cc;
+
+            /* THÈME IA 2 (Rose/Rouge profond) */
+            --theme-ia-2-gradient: linear-gradient(135deg, #d44d75 0%, #b83a5e 100%);
+            --theme-ia-2-color: #d44d75;
+            --theme-ia-2-light: #fff0f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--color-bg-gradient);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            background: var(--theme-header-gradient);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        /* STYLE LOGOS HEADER */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; 
+            margin-bottom: 30px;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: contain;
+            background-color: white;
+            padding: 5px 10px; 
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .event-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .event-icon {
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--theme-header-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+        
+        .info-box .icon-container { 
+             font-size: 1.8em; 
+             color: var(--theme-header-color); 
+             margin-top: 5px;
+        }
+
+        .info-box h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text-dark);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            color: var(--color-text-medium);
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .workshop-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: default; 
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .workshop-header {
+            padding: 30px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        
+        .workshop-left-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .workshop-logo-bubble {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; 
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+            overflow: hidden; 
+        }
+
+        .workshop-logo-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 3px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .workshop-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35em;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .expand-icon {
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+        }
+
+        .workshop-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .workshop-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        
+        .workshop-body { 
+             padding: 0 30px;
+        }
+
+        .workshop-card.expanded .workshop-content {
+            max-height: 10000px; /* Très grand pour tout contenir */
+            padding-bottom: 30px; 
+            padding-top: 30px;
+        }
+
+        .workshop-intro {
+            font-style: italic;
+            color: var(--color-text-dark);
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-left: 4px solid var(--theme-header-color); 
+            border-radius: 5px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* STYLE POUR LES ACCORDÉONS NIVEAU 2 (GRANDES SECTIONS) */
+        /* ---------------------------------------------------- */
+        
+        .ia2-accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .ia2-sub-item {
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--theme-ia-2-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .ia2-sub-item:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .ia2-sub-header {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: #fff;
+            color: var(--color-text-dark);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: background 0.2s ease;
+        }
+        
+        .ia2-sub-header:hover {
+            background-color: var(--theme-ia-2-light);
+        }
+        
+        .ia2-sub-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap; 
+        }
+
+        .ia2-sub-header i.icon-left {
+            color: var(--theme-ia-2-color);
+            width: 25px;
+            text-align: center;
+        }
+
+        .ia2-sub-arrow {
+            color: #ccc;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .ia2-sub-item.active .ia2-sub-arrow {
+            transform: rotate(180deg);
+            color: var(--theme-ia-2-color);
+        }
+        
+        .ia2-sub-item.active .ia2-sub-header {
+            background-color: var(--theme-ia-2-light);
+            border-bottom: 1px solid #eee;
+        }
+
+        .ia2-sub-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: white;
+        }
+
+        .ia2-sub-item.active .ia2-sub-content {
+            max-height: 8000px;
+            padding: 20px;
+            color: var(--color-text-medium);
+            line-height: 1.6;
+            overflow: visible; /* Important pour les modales */
+        }
+
+        /* ---------------------------------------------------- */
+        /* STYLE POUR LES ACCORDÉONS NIVEAU 3 (THÉORIE/PRATIQUE) */
+        /* ---------------------------------------------------- */
+        
+        .ia3-sub-item {
+            margin-bottom: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .ia3-sub-header {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: background 0.2s;
+        }
+
+        .ia3-header-theory {
+            background-color: #f8f9fa;
+            color: #495057;
+            border-left: 4px solid #6c757d;
+        }
+        .ia3-header-theory:hover {
+            background-color: #e9ecef;
+        }
+
+        .ia3-header-practice {
+            background-color: #fff0f3;
+            color: #b83a5e;
+            border-left: 4px solid #d44d75;
+        }
+        .ia3-header-practice:hover {
+            background-color: #ffe6eb;
+        }
+
+        .ia3-sub-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+            padding: 0 15px;
+        }
+
+        .ia3-sub-item.active .ia3-sub-content {
+            max-height: 5000px; /* Augmenté */
+            padding: 15px;
+            border-top: 1px solid #f0f0f0;
+            overflow: visible;
+        }
+
+        .ia3-sub-item.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* ---------------------------------------------------- */
+        /* STYLE FLASHCARDS (CORRIGÉ - HAUTEUR AUTO) */
+        /* ---------------------------------------------------- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .flashcard {
+            background-color: transparent;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            text-align: left;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            
+            /* GRID pour superposition */
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            /* Superposition */
+            grid-row: 1;
+            grid-column: 1;
+            
+            width: 100%;
+            height: auto; /* Hauteur automatique */
+            
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            overflow: visible;
+        }
+
+        .flashcard-front {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--theme-ia-2-color);
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .flashcard-back {
+            background-color: var(--theme-ia-2-color);
+            color: white;
+            transform: rotateY(180deg);
+            border: 1px solid var(--theme-ia-2-color);
+        }
+
+        .flashcard-tag {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .flashcard-question {
+            font-weight: 700;
+            margin-top: 10px;
+            color: #b83a5e;
+        }
+
+        .flashcard-front .flashcard-hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        /* Contenu interne */
+        .content-list {
+            list-style-type: none;
+            padding-left: 5px;
+            margin-top: 5px;
+        }
+        
+        .content-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .content-list li::before {
+            content: "•";
+            color: var(--theme-ia-2-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .prompt-box {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin-top: 10px;
+            border-left: 3px solid #4fd1c5;
+            white-space: normal; /* Texte complet visible */
+            line-height: 1.5;
+        }
+        .prompt-box p { margin-bottom: 10px; margin-top:0; }
+
+        /* BOUTON CHRONOMÈTRE */
+        .timer-btn {
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            color: #495057;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-family: 'Lato', monospace;
+            font-size: 0.85em;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            margin-left: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .timer-btn:hover {
+            background-color: #e9ecef;
+            transform: translateY(-1px);
+        }
+
+        .timer-btn.running {
+            background-color: var(--theme-ia-2-light);
+            border-color: var(--theme-ia-2-color);
+            color: var(--theme-ia-2-color);
+            animation: pulse-border 2s infinite;
+        }
+
+        .timer-btn.finished {
+            background-color: var(--theme-ia-2-color);
+            border-color: var(--theme-ia-2-color);
+            color: white;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(212, 77, 117, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(212, 77, 117, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 77, 117, 0); }
+        }
+
+        /* Checkbox style */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .checklist-item input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--theme-ia-2-color);
+        }
+        
+        /* Contenu spécifique Checklist (style bloc simple) */
+        .content-block-simple {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+        .content-title-simple {
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* STYLE MODAL IMAGE (LIGHTBOX) */
+        .zoomable-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            cursor: zoom-in;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+            margin: 10px auto;
+        }
+        .zoomable-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .image-modal {
+            display: none; /* Caché par défaut */
+            position: fixed; 
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 5px;
+            animation: zoom 0.3s;
+            object-fit: contain;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0.1); opacity: 0;} 
+            to {transform:scale(1); opacity: 1;}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        /* --- APPLICATION DU THÈME UNIQUE IA 2 --- */
+        
+        .workshop-card .workshop-header { background: var(--theme-ia-2-gradient); }
+        .workshop-card .workshop-intro { border-left-color: var(--theme-ia-2-color); background: #fff0f3; }
+        .workshop-card .workshop-logo-bubble { background-color: var(--theme-ia-2-color); }
+        .workshop-card .icon { color: var(--theme-ia-2-color); }
+
+
+        @media (max-width: 768px) {
+            body { padding: 20px; }
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1.1em; }
+            .event-info { flex-direction: column; gap: 15px; }
+            .event-detail { font-size: 1em; }
+            .workshops-grid { grid-template-columns: 1fr; }
+            .workshop-title { font-size: 1.2em; }
+            header { padding: 40px 25px; }
+            .logo-container { gap: 20px; }
+            .logo-img { width: 90px; height: 45px; }
+            .workshop-logo-bubble { width: 40px; height: 40px; }
+            .workshop-left-content { gap: 15px; }
+            .ia2-sub-header-left { width: 100%; margin-bottom: 5px; }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* STYLE FOOTER */
+        .app-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #c3cfe2;
+            color: var(--color-text-medium);
+            font-size: 0.9em;
+        }
+        .app-footer span {
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="https://www.pedagogie.ac-nice.fr/dane/documents-dane/editeurs/DRANE/Logo_DRANE_Bleu_Klein_de%CC%81taille%CC%81.png" alt="Logo de l'Académie ou DSDEN" class="logo-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Logo_lyc%C3%A9e.png/250px-Logo_lyc%C3%A9e.png" alt="Logo du Lycée" class="logo-img">
+            </div>
+            
+            <h1>Plan de Formation Numérique</h1>
+            <p class="subtitle">Présentation des ateliers</p>
+            <div class="event-info">
+                <div class="event-detail">
+                    <span class="event-icon"><i class="fa-solid fa-school"></i></span>
+                    <span>Lycée Amiral de Grasse</span>
+                </div>
+                <div class="event-detail">
+                    <span class="event-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                    <span>Jeudi 18 décembre</span>
+                </div>
+                <div class="event-detail">
+                    <span class="event-icon"><i class="fa-solid fa-clock"></i></span>
+                    <span>14h - 17h</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="workshops-grid">
+            
+            <!-- WORKSHOP IA NIVEAU 2 -->
+            <div class="workshop-card expanded">
+                <div class="workshop-header" onclick="toggleExpand(this.parentNode)">
+                    <div class="workshop-left-content">
+                        <div class="workshop-logo-bubble">
+                            <img src="https://img.freepik.com/vecteurs-premium/ai-generer-symbole-vectoriel-abstrait-intelligence-artificielle-icone-etoiles-colorees_34480-1539.jpg" alt="Logo IA" class="workshop-logo-img">
+                        </div>
+                        <div>
+                            <div class="workshop-title">IA Niveau 2 : Intégration en Classe & Éthique</div>
+                            <div class="badge">Niveau avancé</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                
+                <div class="workshop-content">
+                    <div class="workshop-body">
+                        <!-- Intro -->
+                        <div class="workshop-intro">
+                            <i class="fa-solid fa-rocket" style="color:var(--theme-ia-2-color); margin-right:8px;"></i>
+                            Maîtriser le cadre pédagogique et éthique pour initier les élèves aux enjeux de l'IA. <br>
+                            <span style="font-size:0.9em; opacity:0.8;">(Prérequis : Concepts du niveau 1 maîtrisés)</span>
+                        </div>
+                        
+                        <!-- ACCORDÉON CONTENU PÉDAGOGIQUE -->
+                        <div class="ia2-accordion-container">
+
+                            <!-- 0. CHECKLIST -->
+                            <div class="ia2-sub-item">
+                                <div class="ia2-sub-header" onclick="toggleSubItem(event, this.parentNode)">
+                                    <div class="ia2-sub-header-left">
+                                        <i class="fa-solid fa-clipboard-check icon-left"></i> 
+                                        <span>Checklist & Définitions</span>
+                                        <button class="timer-btn" onclick="toggleTimer(event, this, 5)" title="Lancer le chrono">
+                                            <i class="fa-solid fa-stopwatch"></i> <span class="time-display">05:00</span>
+                                        </button>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down ia2-sub-arrow"></i>
+                                </div>
+                                <div class="ia2-sub-content">
+                                    <div class="content-block-simple" style="background-color: #fff8e1; border-left: 3px solid #ffc107;">
+                                        <div class="content-title-simple" style="color: #d39e00;"><i class="fa-regular fa-lightbulb"></i> Principe pédagogique</div>
+                                        <p>Cette formation alterne <strong>théorie et pratique</strong> : chaque concept est immédiatement illustré par une démonstration concrète. Vous apprendrez à utiliser l'IA en l'utilisant !</p>
+                                    </div>
+
+                                    <div class="content-block-simple" style="background-color: #f8f9fa; border-left: 3px solid #6c757d;">
+                                        <div class="content-title-simple"><i class="fa-solid fa-shield-halved"></i> Checklist de sécurité</div>
+                                        <ol style="padding-left: 20px; margin-top: 10px; color: var(--color-text-medium);">
+                                            <li style="margin-bottom: 12px;"><strong>Utiliser un compte mail générique dédié</strong><br>Ce compte ne doit contenir aucune donnée personnelle et être réservé exclusivement aux activités pédagogiques.</li>
+                                            <li style="margin-bottom: 12px;"><strong>Partage d'aucune données personnelles ou sensibles</strong><br>Aucune donnée personnelle dans les IA grand public (<em>Cadre MEN p.8</em>).</li>
+                                            <li style="margin-bottom: 12px;"><strong>Vérifier systématiquement les Conditions Générales d’Utilisation</strong><br>Privilégier les outils sans compte et européens (ex: Mistral) (<em>Cadre MEN p.4-5</em>).</li>
+                                            <li style="margin-bottom: 12px;"><strong>Penser à être transparent sur votre utilisation</strong><br>Expliquer le cadre d’usage : objectifs pédagogiques, règles de sécurité.</li>
+                                            <li style="margin-bottom: 12px;"><strong>Opposition à l'entraînement des IA</strong><br>(droit RGPD - CNIL "Droit d'opposition").</li>
+                                            <li style="margin-bottom: 12px;"><strong>Outils pour cet atelier</strong><br>IA génératives, LLM Mistral, Spirit ou le modèle de votre choix.</li>
+                                        </ol>
+                                    </div>
+
+                                    <div class="content-block-simple" style="background-color: #e3f2fd; border-left: 3px solid #2196f3;">
+                                        <div class="content-title-simple" style="color: #0d47a1;"><i class="fa-solid fa-brain"></i> Définition, rappel important</div>
+                                        <p style="margin-bottom: 10px;">L’IA générative est une technologie qui crée du contenu à partir d’instructions. C'est un <strong>stagiaire numérique sous stéroïde</strong> : rapide mais sans esprit critique.</p>
+                                    </div>
+
+                                    <div class="content-block-simple" style="background-color: #ffebee; border-left: 3px solid #d32f2f;">
+                                        <div class="content-title-simple" style="color: #b71c1c;"><i class="fa-solid fa-triangle-exclamation"></i> Rappel essentiel du Cadre MEN</div>
+                                        <div style="margin-bottom: 15px;">
+                                            <strong style="color: #b71c1c;">1. ⛔ Interdiction de demander la création de comptes personnels</strong>
+                                            <p style="font-size: 0.9em; margin-top: 5px; font-style: italic; color: #555; border-left: 2px solid #ef9a9a; padding-left: 10px;">
+                                                "Aucun membre du personnel ne doit demander aux élèves d'utiliser des services d'IA grand public impliquant la création d'un compte personnel." (p.8)
+                                            </p>
+                                        </div>
+                                        <div style="margin-bottom: 15px;">
+                                            <strong style="color: #b71c1c;">2. ✅ Nécessité d'une plus-value pédagogique</strong>
+                                            <p style="font-size: 0.9em; margin-top: 5px; font-style: italic; color: #555; border-left: 2px solid #ef9a9a; padding-left: 10px;">
+                                                "N'utilisez l'IA que lorsqu'une plus-value pédagogique est avérée." (p.13)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 1. L'IA AU SERVICE DE LA DIFFÉRENCIATION (25 min) -->
+                            <div class="ia2-sub-item">
+                                <div class="ia2-sub-header" onclick="toggleSubItem(event, this.parentNode)">
+                                    <div class="ia2-sub-header-left">
+                                        <i class="fa-solid fa-graduation-cap icon-left"></i> 
+                                        <span>L'IA au service de la différenciation</span>
+                                        <button class="timer-btn" onclick="toggleTimer(event, this, 25)" title="Lancer le chrono">
+                                            <i class="fa-solid fa-stopwatch"></i> <span class="time-display">25:00</span>
+                                        </button>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down ia2-sub-arrow"></i>
+                                </div>
+                                <div class="ia2-sub-content">
+                                    
+                                    <!-- SOUS-MENU THÉORIE -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-theory" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-chalkboard-user"></i> Théorie : Pédagogie avant Technologie</div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            <!-- Partie 1 -->
+                                            <div style="margin-bottom: 20px; margin-top: 10px;">
+                                                <strong style="color: #2c3e50; font-size: 1.05em;">1. Différencier : un problème pédagogique avant d’être technologique</strong>
+                                                <p style="margin-top: 10px;">Avant d’aborder l’IA, il est essentiel de rappeler que la différenciation repose sur trois leviers pédagogiques classiques :</p>
+                                                <ul class="content-list">
+                                                    <li>les contenus (ce que l’élève apprend),</li>
+                                                    <li>les processus (comment il apprend),</li>
+                                                    <li>les productions attendues (comment il montre ce qu’il a appris).</li>
+                                                </ul>
+                                                <p style="margin-top: 10px; font-style: italic; color: var(--color-text-medium);">L’IA n’invente pas la différenciation : elle permet de la rendre praticable à grande échelle, dans des classes hétérogènes et sous contrainte de temps.</p>
+                                            </div>
+
+                                            <!-- Partie 2 -->
+                                            <div style="margin-bottom: 20px;">
+                                                <strong style="color: #2c3e50; font-size: 1.05em;">2. Ce que l’IA peut réellement apporter à la différenciation</strong>
+                                                
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">a) Différencier les contenus sans appauvrir les savoirs</strong>
+                                                    <p style="margin-top: 5px;">L’IA permet de :</p>
+                                                    <ul class="content-list">
+                                                        <li>reformuler un même savoir à plusieurs niveaux de complexité cognitive (vocabulaire, syntaxe, densité conceptuelle),</li>
+                                                        <li>expliciter les implicites scolaires (lexique, attentes, raisonnement),</li>
+                                                        <li>proposer des versions intermédiaires entre le cours magistral et le manuel.</li>
+                                                    </ul>
+                                                    <p style="margin-top: 5px;"><strong>Point de vigilance pédagogique :</strong> Différencier ne signifie pas simplifier les exigences, mais adapter les chemins d’accès au savoir.</p>
+                                                </div>
+
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">b) Générer des aides graduées et réversibles</strong>
+                                                    <p style="margin-top: 5px;">L’IA est particulièrement efficace pour produire :</p>
+                                                    <ul class="content-list">
+                                                        <li>des indices progressifs (du plus général au plus ciblé),</li>
+                                                        <li>des exemples supplémentaires ou analogies,</li>
+                                                        <li>des rappels de notions préalables mobilisées par la tâche.</li>
+                                                    </ul>
+                                                    <p style="margin-top: 5px;"><strong>Intérêt majeur :</strong> ces aides peuvent être activées à la demande, ce qui favorise l’autonomie et évite la stigmatisation.</p>
+                                                </div>
+
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">c) Adapter les consignes à des profils d’élèves identifiés</strong>
+                                                    <p style="margin-top: 5px;">Sans jamais remplacer l’analyse de l’enseignant, l’IA peut aider à :</p>
+                                                    <ul class="content-list">
+                                                        <li>reformuler une consigne pour des élèves à besoins éducatifs particuliers (clarification, segmentation, explicitation),</li>
+                                                        <li>adapter la langue pour des élèves allophones tout en conservant les objectifs disciplinaires,</li>
+                                                        <li>enrichir ou complexifier une tâche pour des élèves rapides (transfert, justification, mise en relation).</li>
+                                                    </ul>
+                                                    <p style="margin-top: 5px;">On ne différencie pas les objectifs, mais les modalités d’accès et d’engagement.</p>
+                                                </div>
+
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">d) Structurer des parcours différenciés</strong>
+                                                    <p style="margin-top: 5px;">L’IA peut assister l’enseignant dans la conception de :</p>
+                                                    <ul class="content-list">
+                                                        <li>parcours de remédiation (revenir sur les prérequis),</li>
+                                                        <li>parcours de consolidation (s’entraîner avec variation),</li>
+                                                        <li>parcours d’extension (approfondir, transférer, problématiser).</li>
+                                                    </ul>
+                                                    <p style="margin-top: 5px;">L’intérêt n’est pas l’automatisation, mais la rapidité de prototypage pédagogique.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Partie 3 -->
+                                            <div style="margin-bottom: 20px;">
+                                                <strong style="color: #2c3e50; font-size: 1.05em;">3. Ce que l’IA ne remplace pas (et ne remplacera pas)</strong>
+                                                <p style="margin-top: 10px;">Il est fondamental de poser des limites claires :</p>
+                                                <ul class="content-list">
+                                                    <li>L’IA ne pose pas de diagnostic pédagogique : elle ne connaît ni les élèves, ni le contexte de classe.</li>
+                                                    <li>Elle ne remplace pas la relation pédagogique, l’encouragement, la médiation.</li>
+                                                    <li>Elle ne fait pas de choix didactiques : c’est l’enseignant qui hiérarchise, sélectionne, ajuste.</li>
+                                                    <li><strong>L’IA est un outil d’aide à la décision pédagogique, jamais un décideur.</strong></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- SOUS-MENU PRATIQUE -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-practice" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-laptop-code"></i> Pratique : Ateliers de différenciation </div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            
+                                            <!-- Part 1 -->
+                                            <div style="margin-bottom: 25px; margin-top: 15px;">
+                                                <strong style="color: #b83a5e; font-size: 1.1em;">1️⃣ DIFFÉRENCIER LE CONTENU – Adapter le niveau d'explicitation</strong>
+                                                
+                                                <p style="margin-top: 10px; margin-bottom: 10px; font-style: italic; color: #2c3e50;">
+                                                    Si l'IA facilite la différenciation pédagogique pour les élèves, elle transforme aussi le quotidien professionnel des enseignants en leur redonnant du temps pour l'essentiel : la relation pédagogique et l'accompagnement des élèves.
+                                                </p>
+
+                                                <p style="margin-top: 5px; font-weight: 600;">🎯 Objectif pédagogique</p>
+                                                <p style="font-size: 0.95em; color: #555;">Proposer le même concept scientifique à différents niveaux d'explicitation, sans appauvrir le contenu.</p>
+                                                
+                                                <p style="margin-top: 10px; font-weight: 600; color: #2c3e50;">🔹 Prompt enseignant</p>
+                                                <div class="prompt-box">
+                                                    <p>Tu es professeur de SNT en classe de seconde. Explique le principe d'un algorithme de recommandation utilisé par un réseau social en TROIS versions distinctes, basées sur LE MÊME concept scientifique :</p>
+                                                    <p>1. <strong>Version guidée</strong> (pour un élève en difficulté) :<br>
+                                                       - Phrases courtes (maximum 15 mots par phrase)<br>
+                                                       - Un exemple concret du quotidien (TikTok, Instagram, YouTube...)<br>
+                                                       - Vocabulaire courant avec définitions intégrées<br>
+                                                       - Utilise des analogies simples</p>
+                                                    <p>2. <strong>Version standard</strong> (attendue en fin de seconde) :<br>
+                                                       - Vocabulaire technique approprié au niveau seconde<br>
+                                                       - Explication structurée en 2-3 paragraphes<br>
+                                                       - Un exemple d'application concrète</p>
+                                                    <p>3. <strong>Version approfondie</strong> (pour un élève très à l'aise) :<br>
+                                                       - Liens avec la collecte de données et les choix algorithmiques<br>
+                                                       - Questionnement éthique (bulles de filtres, biais...)<br>
+                                                       - Vocabulaire expert et mise en perspective</p>
+                                                    <p>Objectif commun aux trois versions : comprendre que l'algorithme sélectionne et hiérarchise des contenus en fonction de l'activité et des interactions de l'utilisateur.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Part 2 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #b83a5e; font-size: 1.1em;">2️⃣ DIFFÉRENCIER LE PROCESSUS – Générer des aides graduées</strong>
+                                                <p style="margin-top: 5px; font-weight: 600;">🎯 Objectif pédagogique</p>
+                                                <p style="font-size: 0.95em; color: #555;">Aider les élèves à progresser dans leur raisonnement sans donner directement la réponse.</p>
+                                                
+                                                <p style="margin-top: 10px; font-weight: 600; color: #2c3e50;">🔹 Prompt enseignant</p>
+                                                <div class="prompt-box">
+                                                    <p>Je donne cet exercice à mes élèves de SNT : "Expliquer pourquoi deux utilisateurs d'un même réseau social peuvent voir des contenus différents dans leur fil d'actualité."</p>
+                                                    <p>Produis TROIS aides progressives et indépendantes :</p>
+                                                    <p><strong>AIDE 1</strong> (rappel de notion ou question de réflexion) :<br>
+                                                    - Rappelle un concept vu en cours OU<br>
+                                                    - Pose une question générale qui oriente sans dévoiler la réponse<br>
+                                                    - Maximum 2 phrases</p>
+                                                    <p><strong>AIDE 2</strong> (exemple partiel ou situation concrète guidée) :<br>
+                                                    - Donne un exemple concret mais incomplet<br>
+                                                    - Ou propose une situation analogue plus simple<br>
+                                                    - L'élève doit encore faire le lien avec l'exercice</p>
+                                                    <p><strong>AIDE 3</strong> (guidage précis permettant de structurer la réponse) :<br>
+                                                    - Décompose la réflexion en étapes<br>
+                                                    - Utilise des questions pour structurer le raisonnement<br>
+                                                    - Ne donne pas la réponse finale, mais le chemin pour y arriver</p>
+                                                    <p>Chaque aide doit pouvoir être utilisée SÉPARÉMENT (un élève peut n'utiliser que l'aide 1, ou sauter directement à l'aide 3).</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Part 3 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #b83a5e; font-size: 1.1em;">3️⃣ DIFFÉRENCIER LES CONSIGNES – Clarifier ou enrichir</strong>
+                                                <p style="margin-top: 5px; font-weight: 600;">🎯 Objectif pédagogique</p>
+                                                <p style="font-size: 0.95em; color: #555;">Réduire la charge cognitive pour certains élèves, augmenter l'exigence pour d'autres, sans changer l'objectif d'apprentissage.</p>
+                                                
+                                                <p style="margin-top: 10px; font-weight: 600; color: #2c3e50;">🔹 Prompt enseignant</p>
+                                                <div class="prompt-box">
+                                                    <p>Voici une consigne donnée à mes élèves de SNT :<br>
+                                                    "Analyser le rôle des algorithmes de recommandation dans la diffusion de l'information sur les réseaux sociaux."</p>
+                                                    <p><strong>PARTIE 1</strong> - Simplifie cette consigne pour un élève en difficulté :<br>
+                                                    - Découpe-la en 3 étapes claires et numérotées<br>
+                                                    - Explicite chaque verbe d'action (que signifie "analyser" ?)<br>
+                                                    - Ajoute un exemple de ce qui est attendu<br>
+                                                    - Conserve EXACTEMENT le même objectif d'apprentissage</p>
+                                                    <p><strong>PARTIE 2</strong> - Enrichis cette consigne pour un élève rapide :<br>
+                                                    - Ajoute une dimension critique ou réflexive<br>
+                                                    - Demande une justification argumentée<br>
+                                                    - Propose une mise en perspective (ex : comparaison, actualité, enjeux)<br>
+                                                    - Conserve la même base d'analyse</p>
+                                                    <p><strong>PARTIE 3</strong> - Crée deux variantes (Sujet A et Sujet B) :<br>
+                                                    - Même niveau de difficulté<br>
+                                                    - Même compétence évaluée<br>
+                                                    - Contextes ou exemples différents<br>
+                                                    - Permet d'éviter la copie entre voisins</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Part 4 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #b83a5e; font-size: 1.1em;">4️⃣ CONSTRUIRE UN PARCOURS DIFFÉRENCIÉ COMPLET</strong>
+                                                <p style="margin-top: 5px; font-weight: 600;">🎯 Objectif pédagogique</p>
+                                                <p style="font-size: 0.95em; color: #555;">Organiser l'hétérogénéité d'une classe entière dans une même séance, avec autonomie des élèves.</p>
+                                                
+                                                <p style="margin-top: 10px; font-weight: 600; color: #2c3e50;">🔹 Prompt enseignant</p>
+                                                <div class="prompt-box">
+                                                    <p>Je prépare une séance de SNT (55 minutes) sur les algorithmes de recommandation des réseaux sociaux. Ma classe est hétérogène.</p>
+                                                    <p>Construis un parcours différencié en TROIS NIVEAUX avec circulation possible entre les niveaux :</p>
+                                                    <p><strong>NIVEAU 1 - REMÉDIATION (élèves en difficulté)</strong><br>
+                                                    Objectif : Comprendre l'idée de recommandation automatisée<br>
+                                                    Tâche : [décris une activité concrète, guidée, 20-25 min]<br>
+                                                    Type d'aide autorisé : documents ressources, tutoriel pas à pas<br>
+                                                    Production attendue : [simple et vérifiable]</p>
+                                                    <p><strong>NIVEAU 2 - CONSOLIDATION (élèves au niveau attendu)</strong><br>
+                                                    Objectif : Expliquer le lien entre données, interactions et contenus proposés<br>
+                                                    Tâche : [décris une activité structurée, 30-35 min]<br>
+                                                    Type d'aide autorisé : fiches méthode, aides graduées<br>
+                                                    Production attendue : [structurée et argumentée]</p>
+                                                    <p><strong>NIVEAU 3 - EXTENSION (élèves très à l'aise)</strong><br>
+                                                    Objectif : Analyser les effets possibles de ces algorithmes sur l'information et les opinions<br>
+                                                    Tâche : [décris une activité ouverte, critique, 35-40 min]<br>
+                                                    Type d'aide autorisé : ressources complémentaires, recherche autonome<br>
+                                                    Production attendue : [analyse critique et personnelle]</p>
+                                                    <p>Pour chaque niveau, précise :<br>
+                                                    - Le temps estimé<br>
+                                                    - Le support (numérique/papier)<br>
+                                                    - Les critères de réussite<br>
+                                                    - La possibilité de passer au niveau supérieur</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Part 5 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #b83a5e; font-size: 1.1em;">5️⃣ VÉRIFIER ET AMÉLIORER LES PRODUCTIONS DE L'IA</strong>
+                                                <p style="margin-top: 5px; font-weight: 600;">🎯 Objectif pédagogique</p>
+                                                <p style="font-size: 0.95em; color: #555;">Développer un esprit critique face aux limites de l'IA et garantir la rigueur scientifique.</p>
+                                                
+                                                <p style="margin-top: 10px; font-weight: 600; color: #2c3e50;">🔹 Prompt enseignant</p>
+                                                <div class="prompt-box">
+                                                    <p>J'ai demandé à une IA de produire une explication sur les algorithmes de recommandation. Voici sa réponse :<br>
+                                                    [COLLER ICI LA PRODUCTION DE L'IA]</p>
+                                                    <p>En tant qu'expert en pédagogie et en sciences du numérique, analyse cette production selon les critères suivants :</p>
+                                                    <p><strong>1. EXACTITUDE SCIENTIFIQUE</strong><br>
+                                                    - Repère les imprécisions ou simplifications abusives<br>
+                                                    - Identifie les erreurs factuelles éventuelles<br>
+                                                    - Signale les concepts mal expliqués</p>
+                                                    <p><strong>2. BIAIS ET ANGLES MORTS</strong><br>
+                                                    - Quels aspects importants sont oubliés ?<br>
+                                                    - Y a-t-il des biais dans la présentation ?<br>
+                                                    - Les exemples sont-ils pertinents et actuels ?</p>
+                                                    <p><strong>3. RIGUEUR PÉDAGOGIQUE</strong><br>
+                                                    - Le niveau de langue est-il adapté ?<br>
+                                                    - La progression est-elle logique ?<br>
+                                                    - Les transitions sont-elles claires ?</p>
+                                                    <p><strong>4. SOURCES ET RÉFÉRENCES</strong><br>
+                                                    - Des sources sont-elles mentionnées ?<br>
+                                                    - Sont-elles vérifiables et à jour ?<br>
+                                                    - Manque-t-il des références essentielles ?</p>
+                                                    <p><strong>5. PROPOSITION D'AMÉLIORATION</strong><br>
+                                                    - Suggère 3 améliorations concrètes et hiérarchisées<br>
+                                                    - Propose une reformulation d'un passage problématique<br>
+                                                    - Indique des sources complémentaires à consulter</p>
+                                                    <p>Présente ton analyse de manière structurée et constructive.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. CADRE NATIONAL ET ÉTHIQUE (25 min) -->
+                            <div class="ia2-sub-item">
+                                <div class="ia2-sub-header" onclick="toggleSubItem(event, this.parentNode)">
+                                    <div class="ia2-sub-header-left">
+                                        <i class="fa-solid fa-scale-balanced icon-left"></i> 
+                                        <span>Cadre National et éthique : usages en classe</span>
+                                        <button class="timer-btn" onclick="toggleTimer(event, this, 25)" title="Lancer le chrono">
+                                            <i class="fa-solid fa-stopwatch"></i> <span class="time-display">25:00</span>
+                                        </button>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down ia2-sub-arrow"></i>
+                                </div>
+                                <div class="ia2-sub-content">
+                                    <!-- SOUS-MENU THÉORIE -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-theory" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-shield-halved"></i> Théorie : Le Cadre d'Usage 2025 </div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            
+                                            <!-- Message Clé -->
+                                            <div style="margin-bottom: 20px; padding: 15px; background-color: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 4px;">
+                                                <strong style="color: #2e7d32; display:block; margin-bottom:5px;"><i class="fa-solid fa-check-circle"></i> Message clé</strong>
+                                                "L'usage de l'IA est autorisé en éducation dès lors qu'il respecte le cadre défini. Ce cadre n'est pas une contrainte mais une protection pour vous et vos élèves."
+                                                <div style="margin-top: 10px; font-size: 0.9em; color: #555; border-top: 1px solid #c8e6c9; padding-top: 5px;">
+                                                    <strong>Contexte :</strong> <a href="https://www.pedagogie.ac-nice.fr/dane/s-informer/cadre-de-reference-de-l-ia-en-education" target="_blank" style="color: #2e7d32; text-decoration: underline;">Cadre d'usage de l'IA en éducation (juin 2025)</a> • Fruit d'une consultation nationale (janvier-mai 2025).
+                                                </div>
+                                            </div>
+
+                                            <strong style="color: #b71c1c; font-size: 1.1em; display:block; margin-bottom: 15px;">1️⃣ LES 4 PILIERS DU CADRE RÉGLEMENTAIRE</strong>
+
+                                            <!-- Pilier 1 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #2c3e50;"><i class="fa-solid fa-lock"></i> PILIER 1 : PROTECTION DES DONNÉES (priorité absolue)</strong>
+                                                <p style="margin-top: 5px; color: #c62828; font-weight:bold; background: #ffebee; padding: 5px; border-radius: 4px;">📌 Règle d'or : "Aucune donnée personnelle ou confidentielle dans les IA grand public"</p>
+                                                <div style="margin-top: 8px; padding-left: 10px; border-left: 3px solid #4caf50;">
+                                                    <strong style="color: #2e7d32;">✅ CE QUI PEUT ÊTRE SAISI :</strong>
+                                                    <ul class="content-list" style="font-size: 0.9em;">
+                                                        <li>Programmes officiels et textes du Bulletin Officiel.</li>
+                                                        <li>Ressources éducatives libres (Éduscol, Lumni, Wikipédia...).</li>
+                                                        <li>Données statistiques anonymisées.</li>
+                                                        <li>Œuvres du domaine public.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pilier 2 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #2c3e50;"><i class="fa-solid fa-leaf"></i> PILIER 2 : FRUGALITÉ ET IMPACT ENVIRONNEMENTAL</strong>
+                                                <p style="margin-top: 5px; font-style: italic;">"L'IA ne doit être utilisée que si aucune autre solution moins coûteuse écologiquement ne répond de façon satisfaisante au besoin." (p.8)</p>
+                                                <p style="margin-top: 5px; font-size: 0.9em; background: #eee; padding: 5px; border-radius: 4px;">📊 <strong>Chiffre clé :</strong> Une réponse générée par IA = <strong>10 fois plus énergivore</strong> qu'une recherche Google (p.6)</p>
+                                                
+                                                <div style="overflow-x: auto;">
+                                                    <table style="width:100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85em;">
+                                                        <tr style="background:#e0e0e0;"><th style="border:1px solid #ccc; padding:5px; text-align:left;">Situation</th><th style="border:1px solid #ccc; padding:5px; text-align:left;">Pourquoi l'IA est pertinente ?</th></tr>
+                                                        <tr><td style="border:1px solid #ccc; padding:5px;">Créer 3 versions différenciées</td><td style="border:1px solid #ccc; padding:5px;">Complexité + gain de temps majeur</td></tr>
+                                                        <tr><td style="border:1px solid #ccc; padding:5px;">Générer des aides graduées</td><td style="border:1px solid #ccc; padding:5px;">Impossible manuellement en temps limité</td></tr>
+                                                        <tr><td style="border:1px solid #ccc; padding:5px;">Traduire un texte en 5 langues</td><td style="border:1px solid #ccc; padding:5px;">Qualité supérieure + rapidité</td></tr>
+                                                    </table>
+                                                </div>
+                                                <p style="margin-top: 8px; font-weight:bold; color: #d35400; font-size: 0.9em;">🎯 Règle pratique : "Si je peux le faire en moins de 5 minutes sans IA, je n'utilise pas l'IA."</p>
+
+                                                <!-- AJOUT COMPARIA -->
+                                                <div style="margin-top: 15px; font-size: 0.9em; border-left: 3px solid #27ae60; padding-left: 10px; color: #555;">
+                                                    <i class="fa-solid fa-lightbulb" style="color: #27ae60;"></i> <strong>Très bon outil pour aborder ce sujet avec les élèves :</strong><br>
+                                                    Certaines IA, dites frugales, sont conçues pour consommer moins de ressources tout en étant optimisées pour des tâches ciblées. Des comparaisons peuvent se faire sur ce site : <a href="https://comparia.beta.gouv.fr/" target="_blank" style="color: #27ae60; text-decoration: underline;">comparia.beta.gouv.fr</a>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pilier 3 -->
+                                            <div style="margin-bottom: 25px;">
+                                                <strong style="color: #2c3e50;"><i class="fa-solid fa-brain"></i> PILIER 3 : ESPRIT CRITIQUE ET VÉRIFICATION</strong>
+                                                <p style="margin-top: 5px; font-style: italic;">"Les productions générées par l'IA doivent être vérifiées et croisées avec d'autres sources." (p.10)</p>
+                                                
+                                                <div style="margin-top: 10px;">
+                                                    <strong>⚠️ Les 4 types d'erreurs de l'IA :</strong>
+                                                    <ul class="content-list" style="font-size: 0.9em;">
+                                                        <li><strong>Hallucinations :</strong> Citations inexistantes, dates erronées, références fictives.</li>
+                                                        <li><strong>Biais :</strong> Stéréotypes de genre/culturels, surreprésentation, angles morts.</li>
+                                                        <li><strong>Imprécisions scientifiques :</strong> Simplifications, confusions, analogies trompeuses.</li>
+                                                        <li><strong>Obsolescence :</strong> Infos périmées, programmes anciens.</li>
+                                                    </ul>
+                                                    <p style="font-size:0.85em; color:#555; margin-top:5px;"><em>Note : Toujours vérifier les liens fournis par l'IA.</em></p>
+                                                </div>
+                                                
+                                                <div style="margin-top: 10px; padding: 10px; background-color: #fff3e0; border: 1px solid #ffe0b2; border-radius: 5px;">
+                                                    <strong style="color: #e65100;">✅ Méthode : LA RÈGLE DES 3 SOURCES</strong><br>
+                                                    <div style="font-size: 0.9em; margin-top: 5px; text-align: center;">
+                                                        Production IA <br>↓<br>
+                                                        1. Manuel scolaire officiel <br>↓<br>
+                                                        2. Site institutionnel (Éduscol, Lumni...) <br>↓<br>
+                                                        3. Ressource académique <br>↓<br>
+                                                        <strong>✅ Validation PUIS distribution</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pilier 4 -->
+                                            <div style="margin-bottom: 10px;">
+                                                <strong style="color: #2c3e50;"><i class="fa-solid fa-users"></i> PILIER 4 : USAGES PÉDAGOGIQUES SELON LES NIVEAUX</strong>
+                                                <ul class="content-list" style="margin-top: 5px; font-size: 0.95em;">
+                                                    <li><strong>Progressivité :</strong> Au lycée, usage autonome possible dans un cadre défini par l'enseignant.</li>
+                                                    <li><strong>Transparence obligatoire :</strong> Indiquer clairement aux élèves/familles quand et comment une IA a été utilisée.</li>
+                                                    <li><strong>Assistant, jamais remplaçant :</strong> L'IA assiste l'expertise professionnelle (p.8).</li>
+                                                </ul>
+                                                
+                                                <div style="margin-top: 15px; padding: 10px; border: 1px solid #d32f2f; border-radius: 5px; background-color: #ffebee;">
+                                                    <strong style="color: #c62828;">🚫 Définition officielle de la fraude (p.10)</strong>
+                                                    <p style="font-size: 0.9em; margin-top: 5px;">"L'utilisation d'une IA générative pour réaliser un devoir sans autorisation explicite et sans travail personnel d'appropriation constitue une fraude."</p>
+                                                </div>
+
+                                                <div style="margin-top: 10px; padding: 10px; border: 1px solid #fbc02d; border-radius: 5px; background-color: #fffde7;">
+                                                    <strong style="color: #f57f17;">⚠️ Détecteurs d'IA : NE PAS UTILISER</strong>
+                                                    <p style="font-size: 0.9em; margin-top: 5px;">Non recommandés (p.10) car peu fiables.</p>
+                                                    <ul style="font-size: 0.85em; margin-top: 5px; padding-left: 20px;">
+                                                        <li>Taux de faux positifs élevé (20-40%).</li>
+                                                        <li>Risque de pénaliser injustement un élève.</li>
+                                                        <li>Ne respectent pas la présomption d'innocence.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- SOUS-MENU PRATIQUE (FLASHCARDS) -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-practice" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-thumbs-up-down"></i> Pratique : Flashcards Situations </div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            <p style="margin-top: 10px; margin-bottom: 10px;">Cliquez sur les cartes pour révéler la réponse :</p>
+                                            
+                                            <div class="flashcards-grid">
+                                                <!-- Card 1 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 1</div>
+                                                            <p>Vous souhaitez utiliser ChatGPT pour adapter un cours de philosophie aux difficultés spécifiques de votre classe de Terminale. Vous envisagez de copier-coller des extraits de copies d'élèves pour que l'IA propose des exercices ciblés.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Pouvez-vous procéder ainsi ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>❌ <strong>Non.</strong></p>
+                                                            <p>Les copies d'élèves contiennent des données personnelles. Vous ne pouvez saisir dans une IA grand public que des données pouvant être rendues publiques. Reformulez plutôt les difficultés observées de manière anonyme et générique.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 2 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 2</div>
+                                                            <p>Vous suspectez qu'un élève de 1ère a utilisé ChatGPT pour rédiger son commentaire de texte. Un collègue vous recommande un logiciel de détection d'IA pour vérifier.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Devez-vous utiliser ce logiciel ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>❌ <strong>Non recommandé.</strong></p>
+                                                            <p>Le cadre déconseille explicitement l'utilisation de ces logiciels en raison de leur manque de fiabilité, qui pourrait pénaliser à tort un élève. Privilégiez l'entretien individuel et adaptez vos modalités d'évaluation (oral, raisonnement en classe, etc.).</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 3 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 3</div>
+                                                            <p>Vous avez 35 dissertations de Terminale à corriger. Vous envisagez d'utiliser une IA pour générer des corrections types, puis les adapter à chaque copie pour gagner du temps.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Cette pratique est-elle conforme au cadre ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>✅ <strong>Oui, sous conditions.</strong></p>
+                                                            <p>Vous pouvez utiliser l'IA pour vous assister dans la préparation de grilles ou de corrections types génériques. Mais vous devez : 1) Vérifier et croiser les productions de l'IA avec d'autres sources, 2) Ne jamais y saisir de données personnelles d'élèves, 3) Exercer votre jugement professionnel pour chaque copie.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 4 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 4</div>
+                                                            <p>Vous utilisez quotidiennement une IA générative pour reformuler vos consignes, générer des exercices supplémentaires, et même pour des tâches simples comme résumer un article que vous pourriez lire rapidement.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Cette utilisation respecte-t-elle le principe de frugalité ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>❌ <strong>Non.</strong></p>
+                                                            <p>Le cadre impose un usage frugal de l'IA : ne l'utiliser que si aucune autre solution moins coûteuse écologiquement ne répond au besoin. Pour résumer un article que vous pouvez lire, une simple recherche web ou votre propre lecture est préférable. Réservez l'IA aux tâches à réelle plus-value.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 5 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 5</div>
+                                                            <p>Vous avez conçu un sujet de dissertation en Terminale avec l'aide d'une IA qui vous a suggéré des angles d'approche intéressants. Vous gardez cela pour vous car vous craignez que les élèves perdent confiance.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Devez-vous mentionner l'utilisation de l'IA ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>✅ <strong>Oui.</strong></p>
+                                                            <p>Le principe de transparence exige de signaler toute utilisation de l'IA, en indiquant clairement comment elle a été utilisée. Cela participe à l'éducation critique des élèves et renforce la confiance. Vous pouvez expliquer : "J'ai utilisé une IA pour explorer différents angles, puis j'ai validé et enrichi ces propositions."</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 6 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 6</div>
+                                                            <p>Vous planifiez une séquence pédagogique en 1ère où les élèves utiliseront ChatGPT pour analyser des discours politiques. Pour faciliter le travail, vous envisagez de leur demander de créer des comptes personnels.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Pouvez-vous demander aux élèves de créer des comptes ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>❌ <strong>Absolument pas.</strong></p>
+                                                            <p>Le cadre interdit explicitement de demander aux élèves de créer un compte personnel auprès de services d'IA grand public. Si vous souhaitez qu'ils manipulent l'IA, utilisez un outil validé par l'établissement ou projetez l'IA en classe sous votre supervision.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 7 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 7</div>
+                                                            <p>En Sciences Économiques et Sociales, vous utilisez une IA pour générer des études de cas sur différents métiers. Vous remarquez que l'IA propose systématiquement des infirmières (féminin) et des ingénieurs (masculin).</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Comment devez-vous réagir ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>✅ <strong>Exercez votre esprit critique.</strong></p>
+                                                            <p>Le cadre souligne les risques de biais et de reproduction de stéréotypes. Vous devez : 1) Corriger ces biais avant de présenter le contenu, 2) Utiliser cette situation comme opportunité pédagogique pour sensibiliser les élèves aux biais des IA, 3) Diversifier systématiquement les exemples.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 8 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 8</div>
+                                                            <p>Vous développez avec un collègue un système d'IA qui analyse les résultats des élèves de Seconde pour suggérer des orientations en Première (générale, technologique, professionnelle).</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Pouvez-vous utiliser directement ces suggestions ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>⚠️ <strong>Attention.</strong></p>
+                                                            <p>Cette utilisation est considérée comme "à haut risque" par le règlement européen. Elle nécessite : 1) Une supervision humaine garantissant l'équité et l'explicabilité, 2) Une validation préalable par l'autorité compétente, 3) Une information complète des élèves et familles sur l'usage de l'IA et leurs droits. La décision finale doit rester humaine.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 9 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 9</div>
+                                                            <p>Vous préparez un cours d'Histoire sur la Seconde Guerre mondiale. L'IA vous fournit des dates, des citations et des références bibliographiques précises qui semblent parfaites pour votre cours.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Pouvez-vous utiliser directement ce contenu ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>❌ <strong>Non sans vérification.</strong></p>
+                                                            <p>Le cadre rappelle les risques d'inexactitudes et d'hallucinations. Vous devez impérativement : 1) Vérifier l'exactitude des informations, 2) Croiser avec d'autres sources fiables, 3) Vérifier que les références citées existent réellement. Si vous ne pouvez pas évaluer la fiabilité, renoncez à l'IA.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 10 -->
+                                                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                    <div class="flashcard-inner">
+                                                        <div class="flashcard-front">
+                                                            <div class="flashcard-tag">Situation 10</div>
+                                                            <p>Un élève de Terminale rend une excellente dissertation, mais l'échange oral révèle qu'il ne maîtrise pas le contenu. Il admet avoir utilisé ChatGPT "juste pour structurer ses idées" sans autorisation préalable.</p>
+                                                            <div class="flashcard-question"><strong>Question :</strong> Comment qualifier cette situation ?</div>
+                                                            <div class="flashcard-hint"><i class="fa-solid fa-rotate"></i> Voir la réponse</div>
+                                                        </div>
+                                                        <div class="flashcard-back">
+                                                            <div class="flashcard-tag">Réponse</div>
+                                                            <p>🚫 <strong>Fraude.</strong></p>
+                                                            <p>Le cadre stipule clairement que l'utilisation d'une IA générative pour réaliser tout ou partie d'un devoir, sans autorisation explicite de l'enseignant ET sans travail personnel d'appropriation, constitue une fraude. Elle est assimilée à l'intervention d'une tierce personne. Appliquez le règlement intérieur tout en profitant de l'occasion pour rappeler le cadre d'usage à toute la classe.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. LITTÉRATIE CRITIQUE DE L'IA (20 min) -->
+                            <div class="ia2-sub-item">
+                                <div class="ia2-sub-header" onclick="toggleSubItem(event, this.parentNode)">
+                                    <div class="ia2-sub-header-left">
+                                        <i class="fa-solid fa-users-viewfinder icon-left"></i> 
+                                        <span>Littératie critique de l'IA pour les élèves</span>
+                                        <button class="timer-btn" onclick="toggleTimer(event, this, 20)" title="Lancer le chrono">
+                                            <i class="fa-solid fa-stopwatch"></i> <span class="time-display">20:00</span>
+                                        </button>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down ia2-sub-arrow"></i>
+                                </div>
+                                <div class="ia2-sub-content">
+                                    <!-- SOUS-MENU THÉORIE (MODIFIÉ) -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-theory" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-eye"></i> Théorie : Littératie de l'IA</div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            <div style="margin-bottom: 20px; margin-top: 10px;">
+                                                <p style="font-style: italic; color: #555; margin-bottom: 15px; border-left: 3px solid #6c757d; padding-left: 10px;">
+                                                    "La littératie critique de l’IA, c’est la capacité à comprendre comment fonctionne une intelligence artificielle, à questionner la fiabilité de ses réponses, et à l’utiliser de manière responsable, sans perdre son esprit critique."
+                                                </p>
+                                                
+                                                <strong style="color: #2c3e50; display:block; margin-bottom: 10px;">Les 3 piliers de la littératie critique de l'IA pour les élèves :</strong>
+
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">1. COMPRENDRE (Comment ça marche ?)</strong>
+                                                    <ul class="content-list" style="margin-top: 5px;">
+                                                        <li>L'IA génère du contenu par prédiction statistique, pas par "compréhension".</li>
+                                                        <li>Elle s'entraîne sur d'énormes corpus de textes existants.</li>
+                                                        <li>Elle peut reproduire des biais présents dans ses données d'entraînement.</li>
+                                                    </ul>
+                                                    
+                                                    <!-- AJOUT DES LIENS VIDÉOS -->
+                                                    <div style="margin-top: 10px; font-size: 0.9em; background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+                                                        <strong><i class="fa-solid fa-video"></i> Ressources vidéo :</strong>
+                                                        <ul style="list-style: none; padding-left: 0; margin-top: 5px;">
+                                                            <li style="margin-bottom: 5px;">
+                                                                <a href="http://www.lumni.fr/video/utiliser-l-ia-au-lycee" target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Lumni : Utiliser l'IA au lycée
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://youtu.be/1RRHr3dFogQ?si=76iR29Vy5R-4Msqx" target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-brands fa-youtube"></i> Comprendre l'IA (Vidéo YouTube)
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">2. QUESTIONNER (Peut-on lui faire confiance ?)</strong>
+                                                    <ul class="content-list" style="margin-top: 5px;">
+                                                        <li>Vérifier les sources et faits.</li>
+                                                        <li>Identifier les hallucinations possibles.</li>
+                                                        <li>Reconnaître les limites (pas d'accès aux données récentes sans recherche web, pas d'expertise réelle).</li>
+                                                    </ul>
+                                                    
+                                                    <!-- AJOUT DES LIENS -->
+                                                    <div style="margin-top: 10px; font-size: 0.9em; background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+                                                        <strong><i class="fa-solid fa-laptop-medical"></i> Ressources interactives et vidéos :</strong>
+                                                        <ul style="list-style: none; padding-left: 0; margin-top: 5px;">
+                                                            <li style="margin-bottom: 5px;">
+                                                                <a href="https://mi.hepl.ch/projects/ia/ia.html" target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Comprendre les hallucinations (HEPL)
+                                                                </a>
+                                                            </li>
+                                                            <li style="margin-bottom: 5px;">
+                                                                <a href="https://drane06.github.io/biais/" target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Tester les biais (DRANE 06)
+                                                                </a>
+                                                            </li>
+                                                            <li style="margin-bottom: 5px;">
+                                                                <a href="https://www.survivalofthebestfit.com/" target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Simulation : Survival of the Best Fit
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://youtu.be/xXHWTC4mJBM?si=NyQZICJWeX4Sqklw" target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-brands fa-youtube"></i> Vidéo : Hallucinations de l'IA (YouTube)
+                                                                </a>
+                                                            </li>
+                                                            <li style="margin-top: 5px;">
+                                                                <a href="https://www.data-bird.co/blog/hallucinations-ia#:~:text=Qu%E2%80%99est%20ce%20qu%E2%80%99une%20hallucination%20IA," target="_blank" style="color: var(--theme-ia-2-color); text-decoration: none; font-weight: 500;">
+                                                                    <i class="fa-solid fa-file-lines"></i> Article : Qu'est-ce qu'une hallucination IA ?
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <!-- AJOUT EXEMPLE PERCHANCE -->
+                                                    <div style="margin-top: 10px; background-color: #e3f2fd; padding: 10px; border-radius: 5px; border: 1px solid #bbdefb;">
+                                                        <strong><i class="fa-solid fa-image"></i> Exemple simple à tester en direct :</strong>
+                                                        <p style="margin: 5px 0 5px 0; font-size: 0.9em;">
+                                                            <strong>Outil :</strong> <a href="https://perchance.org/ai-text-to-image-generator" target="_blank" style="color: #0d47a1; text-decoration: underline;">Perchance AI</a> (Gratuit)
+                                                        </p>
+                                                        
+                                                        <div style="background-color: white; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: monospace; position: relative;">
+                                                            <span style="color: #666; font-size: 0.8em; display: block; margin-bottom: 3px; border-bottom: 1px dashed #eee; padding-bottom: 2px;">
+                                                                Prompt à tester <i class="fa-regular fa-copy" style="float:right; cursor:pointer;" title="Copier" onclick="navigator.clipboard.writeText('Une équipe de médecins qui vient de faire une découverte majeure'); alert('Copié !');"></i>
+                                                            </span>
+                                                            "Une équipe de médecins qui vient de faire une découverte majeure"
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- AJOUT EXEMPLE DUCKDUCKGO / CLAUDE -->
+                                                    <div style="margin-top: 10px; background-color: #fff3e0; padding: 10px; border-radius: 5px; border: 1px solid #ffe0b2;">
+                                                        <strong><i class="fa-solid fa-circle-question"></i> Autre exemple à tester (Hallucination) :</strong>
+                                                        <p style="margin: 5px 0 5px 0; font-size: 0.9em;">
+                                                            <strong>Outils :</strong> <a href="https://duck.ai/chat?q=DuckDuckGo&ia=chat" target="_blank" style="color: #e65100; text-decoration: underline;">DuckDuckGo AI</a> (Sans compte) ou <a href="https://claude.ai/" target="_blank" style="color: #e65100; text-decoration: underline;">Claude</a> (Avec compte)
+                                                        </p>
+                                                        
+                                                        <div style="background-color: white; padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-family: monospace; position: relative;">
+                                                            <span style="color: #666; font-size: 0.8em; display: block; margin-bottom: 3px; border-bottom: 1px dashed #eee; padding-bottom: 2px;">
+                                                                Prompt piège <i class="fa-regular fa-copy" style="float:right; cursor:pointer;" title="Copier" onclick="navigator.clipboard.writeText('Quelle est la date exacte de la découverte de la planète Vénus par Galilée ? Donne-moi la source précise de cette découverte.'); alert('Copié !');"></i>
+                                                            </span>
+                                                            "Quelle est la date exacte de la découverte de la planète Vénus par Galilée ? Donne-moi la source précise de cette découverte."
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div style="margin-top: 15px; padding-left: 15px; border-left: 3px solid #cbd5e0;">
+                                                    <strong style="color: var(--theme-ia-2-color);">3. UTILISER de façon responsable (Comment s'en servir intelligemment ?)</strong>
+                                                    <ul class="content-list" style="margin-top: 5px;">
+                                                        <li>Comme outil de réflexion, pas de substitution.</li>
+                                                        <li>En gardant son esprit critique.</li>
+                                                        <li>En respectant l'intégrité académique.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- SOUS-MENU PRATIQUE -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-practice" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-laptop-file"></i> Pratique : Ateliers de création </div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            
+                                            <div style="margin-bottom: 20px; margin-top: 15px;">
+                                                <strong style="color: #b83a5e; display:block; margin-bottom:5px;"><i class="fa-solid fa-video"></i> Atelier 1 - COMPRENDRE : Comment fonctionne une IA générative ?</strong>
+                                                <p style="font-size: 0.95em; line-height: 1.5;">À partir des ressources fournies, réaliser une courte vidéo pédagogique destinée à des élèves de 2de expliquant simplement comment fonctionne une IA générative (principe de prédiction, données d’entraînement, limites) avec <strong>NotebookLM</strong>.</p>
+                                                
+                                                <!-- LECTEUR VIDÉO AJOUTÉ -->
+                                                <div style="margin-top: 15px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background-color: #000;">
+                                                    <video controls width="100%" height="auto" poster="https://placehold.co/600x340/333/fff?text=Emplacement+Vid%C3%A9o" style="display: block;">
+                                                        <source src="votre-video.mp4" type="video/mp4">
+                                                        Votre navigateur ne supporte pas la balise vidéo.
+                                                    </video>
+                                                </div>
+                                                <p style="text-align: center; font-size: 0.8em; color: #666; margin-top: 5px;"><em>(Intégrez votre fichier vidéo ici après publication)</em></p>
+                                            </div>
+
+                                            <div style="margin-bottom: 20px;">
+                                                <strong style="color: #b83a5e; display:block; margin-bottom:5px;"><i class="fa-solid fa-circle-question"></i> Atelier 2 - QUESTIONNER : Peut-on faire confiance à l’IA ?</strong>
+                                                <p style="font-size: 0.95em; line-height: 1.5; margin-bottom: 5px;">À partir d’exemples et de tests proposés, concevoir une fiche pédagogique pour des élèves de 2de, accompagnée d’un QCM, permettant d’identifier les biais, les hallucinations et les limites des réponses produites par une IA. Plusieurs outils disponibles selon ceux que vous préférez.</p>
+                                                
+                                                <!-- AJOUT LIEN TRAME -->
+                                                <p style="margin-top: 5px;">
+                                                    <a href="#" style="color: #b83a5e; font-weight: bold; text-decoration: underline; display: inline-flex; align-items: center; gap: 5px;">
+                                                        <i class="fa-solid fa-file-pdf"></i> Exemple trame de cours + QCM
+                                                    </a>
+                                                    <span style="font-size: 0.8em; color: #666; margin-left: 5px;">(Lien à activer après mise en ligne)</span>
+                                                </p>
+                                            </div>
+
+                                            <div style="margin-bottom: 10px;">
+                                                <strong style="color: #b83a5e; display:block; margin-bottom:5px;"><i class="fa-solid fa-scale-balanced"></i> Atelier 3 - UTILISER DE FAÇON RESPONSABLE</strong>
+                                                <p style="font-size: 0.95em; line-height: 1.5;">Rédiger une charte de bonne utilisation de l’IA, applicable à l’établissement ou à une discipline, précisant les usages autorisés, encadrés et interdits dans un contexte scolaire. Présenter cette charte sous la forme d'une infographie (plusieurs outils disponibles mais <strong>NotebookLM</strong> sera à privilégier pour l'infographie).</p>
+                                                
+                                                <!-- EMPLACEMENT IMAGE INFOGRAPHIE -->
+                                                <div style="margin-top: 15px; text-align: center;">
+                                                    <img src="https://placehold.co/800x600/ffebee/b71c1c?text=Exemple+Infographie+Charte" 
+                                                         alt="Exemple Infographie Charte" 
+                                                         class="zoomable-image" 
+                                                         onclick="openImageModal(this.src)"
+                                                         title="Cliquez pour agrandir">
+                                                    <p style="font-size: 0.8em; color: #666; margin-top: 5px;"><em>(Cliquez sur l'image pour l'afficher en taille réelle - Remplacez le fichier src="" dans le code)</em></p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. ÉVALUER À L'ÈRE DE L'IA (20 min) -->
+                            <div class="ia2-sub-item">
+                                <div class="ia2-sub-header" onclick="toggleSubItem(event, this.parentNode)">
+                                    <div class="ia2-sub-header-left">
+                                        <i class="fa-solid fa-list-check icon-left"></i> 
+                                        <span>Évaluer à l'ère de l'IA</span>
+                                        <button class="timer-btn" onclick="toggleTimer(event, this, 20)" title="Lancer le chrono">
+                                            <i class="fa-solid fa-stopwatch"></i> <span class="time-display">20:00</span>
+                                        </button>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down ia2-sub-arrow"></i>
+                                </div>
+                                <div class="ia2-sub-content">
+                                    <!-- SOUS-MENU THÉORIE -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-theory" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-scale-unbalanced-flip"></i> Théorie : Processus vs Résultat</div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            <!-- LECTEUR VIDÉO UNIQUE -->
+                                            <div style="margin-top: 15px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background-color: #000;">
+                                                <video controls width="100%" height="auto" poster="https://placehold.co/600x340/333/fff?text=Vid%C3%A9o+%C3%89valuation" style="display: block;">
+                                                    <source src="votre-video-evaluation.mp4" type="video/mp4">
+                                                    Votre navigateur ne supporte pas la balise vidéo.
+                                                </video>
+                                            </div>
+                                            <p style="text-align: center; font-size: 0.8em; color: #666; margin-top: 5px;"><em>(Intégrez votre fichier vidéo ici après publication)</em></p>
+
+                                            <!-- AJOUT MARQUEURS -->
+                                            <div style="margin-top: 20px; padding: 15px; background-color: #fff8e1; border-left: 4px solid #ffc107; border-radius: 4px;">
+                                                <strong style="color: #d39e00; display:block; margin-bottom: 10px;"><i class="fa-solid fa-magnifying-glass"></i> Marqueurs possibles de réalisation avec IA génératives (PAS des preuves !)</strong>
+                                                <ul class="content-list" style="margin-bottom: 10px; color: var(--color-text-medium);">
+                                                    <li>Structure très régulière, transitions parfaites, phrases équilibrées et quasi-absence d’erreurs.</li>
+                                                    <li>Vocabulaire générique et exemples peu personnels ou interchangeables.</li>
+                                                    <li>Ton neutre, sans position claire ni émotion.</li>
+                                                    <li>Précision floue (ou au contraire trop parfaite) dans les faits.</li>
+                                                    <li>Répétitions discrètes d’idées ou de formulations.</li>
+                                                    <li>Changement soudain dans le style d’un élève, avec un niveau inattendu par rapport à ses productions habituelles.</li>
+                                                    <li>Citations ou sources douteuses.</li>
+                                                    <li>Mises en forme inhabituelles (tiret quadratin, titres en majuscules).</li>
+                                                </ul>
+                                                <p style="font-weight: bold; color: #c62828; margin-top: 15px; font-size: 0.95em;">
+                                                    <i class="fa-solid fa-triangle-exclamation"></i> Important : Ces marqueurs ne prouvent RIEN. Ne PAS utiliser de détecteurs.
+                                                </p>
+                                            </div>
+
+                                            <!-- AJOUT RESSOURCES -->
+                                            <div style="margin-top: 20px; padding: 15px; background-color: #e3f2fd; border-left: 4px solid #2196f3; border-radius: 4px;">
+                                                <strong style="color: #0d47a1; display:block; margin-bottom: 10px;"><i class="fa-solid fa-book-bookmark"></i> Ressources intéressantes</strong>
+                                                <ul style="list-style: none; padding-left: 0; margin: 0;">
+                                                    <li style="margin-bottom: 10px;">
+                                                        <a href="https://synbox.ac-paris.fr/index.php/s/TraqqaeQCttLoRW" target="_blank" style="color: #0d47a1; text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                                                            <i class="fa-solid fa-chalkboard-user"></i> <span>Pour les enseignants</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://codimd.apps.education.fr/s/KIZLeri75#" target="_blank" style="color: #0d47a1; text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                                                            <i class="fa-solid fa-user-graduate"></i> <span>Pour les élèves</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- SOUS-MENU PRATIQUE -->
+                                    <div class="ia3-sub-item">
+                                        <div class="ia3-sub-header ia3-header-practice" onclick="toggleLevel3(this)">
+                                            <div><i class="fa-solid fa-comments"></i> Pratique : Activité clé en main</div>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="ia3-sub-content">
+                                            
+                                            <!-- AJOUT DU CONSTAT ET DE LA RESSOURCE -->
+                                            <div style="margin-bottom: 20px; padding: 15px; background-color: #fff3e0; border-left: 4px solid #ff9800; border-radius: 4px;">
+                                                <strong style="color: #e65100; display:block; margin-bottom: 10px;"><i class="fa-solid fa-clipboard-list"></i> Constat de terrain & Enjeu</strong>
+                                                <p style="font-size: 0.95em; color: #333; margin-bottom: 10px; line-height: 1.5;">
+                                                    Le constat de terrain révèle que les élèves utilisent déjà massivement les IA génératives telles que ChatGPT dans leurs travaux scolaires, mais souvent de manière non maîtrisée. Cette utilisation se caractérise par une approche de copie directe sans appropriation critique, un usage dissimulé en dehors du cadre pédagogique, et une exploitation superficielle des retours générés par ces outils. Cet usage s'avère contre-productif, l'IA se substituant à la réflexion personnelle plutôt que d'amplifier les capacités d'apprentissage.
+                                                </p>
+                                                <p style="font-size: 0.95em; color: #333; margin-bottom: 15px; line-height: 1.5;">
+                                                    L'enjeu pédagogique majeur consiste donc à transformer cet usage sauvage en usage pédagogique structuré, passant de la dissimulation à l'intégration transparente dans les apprentissages.
+                                                </p>
+                                                <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2025-09/entrainer_et_evaluer_avec_lia.pdf" target="_blank" style="color: #e65100; font-weight: bold; text-decoration: underline; display: flex; align-items: center; gap: 8px;">
+                                                    <i class="fa-solid fa-file-pdf"></i> Ressource pédagogique complète (PDF)
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Fin Accordéons -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="app-footer">
+            © 2025. Mis en forme avec des IA génératives :-)
+        </footer>
+
+    </div>
+
+    <!-- MODAL POUR IMAGE PLEIN ÉCRAN -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    <script>
+        // Fonction pour basculer l'affichage du contenu PRINCIPAL
+        function toggleExpand(card) {
+            document.querySelectorAll('.workshop-card.expanded').forEach(c => {
+                 if (c !== card) c.classList.remove('expanded');
+            });
+            card.classList.toggle('expanded');
+        }
+
+        // Fonction pour basculer les SOUS-MENUS (Niveau 2)
+        function toggleSubItem(event, item) {
+            event.stopPropagation();
+            const parent = item.parentElement;
+            
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+            } else {
+                parent.querySelectorAll('.ia2-sub-item.active').forEach(sibling => {
+                    sibling.classList.remove('active');
+                });
+                item.classList.add('active');
+            }
+        }
+
+        // NOUVEAU : Fonction pour basculer les SOUS-SOUS-MENUS (Niveau 3 - Théorie/Pratique)
+        function toggleLevel3(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // NOUVEAU : Fonctions pour la Lightbox Image
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('fullImage');
+            modal.style.display = "flex";
+            modalImg.src = src;
+            // Empêche le défilement du corps de la page quand la modale est ouverte
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+            // Réactive le défilement
+            document.body.style.overflow = "auto";
+        }
+
+        // --- LOGIQUE CHRONOMÈTRE ---
+        const activeTimers = new Map();
+
+        function toggleTimer(event, btn, minutes) {
+            event.stopPropagation(); 
+
+            const display = btn.querySelector('.time-display');
+
+            if (activeTimers.has(btn)) {
+                clearInterval(activeTimers.get(btn));
+                activeTimers.delete(btn);
+                btn.classList.remove('running');
+                return;
+            }
+
+            let timeParts = display.innerText.split(':');
+            let totalSeconds;
+            
+            if (display.innerText === "00:00" || btn.classList.contains('finished')) {
+                totalSeconds = minutes * 60;
+                btn.classList.remove('finished');
+            } else {
+                totalSeconds = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+            }
+
+            btn.classList.add('running');
+
+            const updateTimer = () => {
+                if (totalSeconds <= 0) {
+                    clearInterval(activeTimers.get(btn));
+                    activeTimers.delete(btn);
+                    btn.classList.remove('running');
+                    btn.classList.add('finished');
+                    display.innerText = "00:00";
+                    if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+                    return;
+                }
+
+                totalSeconds--;
+                const m = Math.floor(totalSeconds / 60);
+                const s = totalSeconds % 60;
+                display.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            };
+
+            const intervalId = setInterval(updateTimer, 1000);
+            activeTimers.set(btn, intervalId);
+        }
+
+        document.querySelectorAll('.timer-btn').forEach(btn => {
+            btn.addEventListener('dblclick', (e) => {
+                e.stopPropagation();
+                if (activeTimers.has(btn)) {
+                    clearInterval(activeTimers.get(btn));
+                    activeTimers.delete(btn);
+                    btn.classList.remove('running');
+                }
+                btn.classList.remove('finished');
+                
+                const duration = btn.getAttribute('onclick').match(/, (\d+)\)/)[1];
+                btn.querySelector('.time-display').innerText = `${duration.padStart(2, '0')}:00`;
+            });
+        });
+
+        // Animation d'entrée
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.workshop-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
